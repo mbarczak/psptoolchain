@@ -102,7 +102,7 @@ if [ "$(uname)" == "Darwin" ]; then
     # fooled by BSD libedit.
     brew --version 1>/dev/null 2>&1 \
         && header_paths+=("`brew --prefix`/opt/readline/include")
-    check_header_nosys readline     readline.h readline/readline.h
+    check_header readline     readline.h readline/readline.h
 
     # GNU libtool will be prepended with letter 'g' to prevent conflicts with
     # the one comes along with OS X.
