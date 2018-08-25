@@ -23,7 +23,9 @@
  patch -p1 < ../../patches/gcc-$GCC_VERSION-PSP.patch
  # get rid of "fancy abort" problem :
  # https://svnweb.freebsd.org/ports/head/lang/gcc49/files/patch-gcc_system.h?view=log#rev421625
- patch -p0 < ../../patches/gcc-4.9.3-macos-fancy-abort-problem.patch
+ if [ "$GCC_VERSION" == "4.9.3" ]; then
+    patch -p0 < ../../patches/gcc-4.9.3-macos-fancy-abort-problem.patch
+ fi
  ## Unpack the library source code.
  ln -fs ../gmp-$GMP_VERSION gmp
  ln -fs ../mpc-$MPC_VERSION mpc
